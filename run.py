@@ -4,9 +4,7 @@ import PIL.Image
 import math
 
 ## Run
-def scaleImage():
-	## Scale images to 512x512
-	size = (512,512)
+def scaleImage(dimension):
 	## file is a string for the filename\
 	i = 0
 	factor = 1
@@ -16,13 +14,13 @@ def scaleImage():
 			img = PIL.Image.open(file)
 			width, height = img.size
 			smallest = min(width,height)
-			factor = int(math.ceil(float(512) / float(smallest)))
+			factor = int(math.ceil(float(dimension) / float(smallest)))
 			## Adjust by the factor to keep aspect ratio
 			width *= factor
 			height *= factor
 			img = img.resize((width, height))
-			img = img.crop((0, 0, 512, 512))
+			img = img.crop((0, 0, dimension, dimension))
 			img.save("test_" + str(i) + ".png")
 			i += 1
 
-scaleImage()
+scaleImage(256)
