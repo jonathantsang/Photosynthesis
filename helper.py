@@ -1,3 +1,4 @@
+import math
 import numpy as np
 from PIL import Image
 #Helper functions - may become outdated as the model grows
@@ -46,4 +47,11 @@ def scaleImage(filename, w, h):
 	img.save("test_" + str(i) + ".png")
 	i += 1
 
+<<<<<<< HEAD
 image_array("gold.jpg")
+=======
+#An activation that attempts to sigmoid the neurons into 0 - 255
+def PixelActivation(x):
+	# return 255/(1+(math.e**(-x)))
+	return x % 256
+>>>>>>> kuroware/master
